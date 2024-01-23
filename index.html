@@ -19,7 +19,7 @@
 
         .links {
             display: flex;
-            flex-direction: row; /* Arrange groups horizontally */
+            flex-direction: row-reverse; /* Reverse the order of groups and gif */
             justify-content: space-around; /* Add space around the groups */
             align-items: center;
         }
@@ -48,14 +48,12 @@
             max-height: 100%;
             border: 4px solid #ffffff; /* Add a 2px white border around the image */
             box-sizing: border-box;
-            margin-right: 20px; /* Add space between the gif and the groups */
+            margin-left: 20px; /* Add space between the gif and the groups */
         }
     </style>
 </head>
 <body>
     <div class="links">
-        <img src="https://i.pinimg.com/originals/8e/8f/1d/8e8f1d842967eb5e91520a74246b358f.gif" alt="Start Page Image">
-
         <div class="group">
             <div class="group-title">4chan</div>
             <a href="https://boards.4chan.org/a/" target="_blank">/a/</a>
@@ -68,6 +66,8 @@
             <div class="group-title">Else</div>
             <a href="https://myfigurecollection.net/" target="_blank">MFG</a>
         </div>
+
+        <img src="https://i.pinimg.com/originals/8e/8f/1d/8e8f1d842967eb5e91520a74246b358f.gif" alt="Start Page Image">
     </div>
 </body>
 </html>
