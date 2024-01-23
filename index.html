@@ -32,18 +32,39 @@
             margin-left: 20px; /* Adjust the spacing between the image and links */
         }
 
-        a {
+        .group {
+            margin-right: 60px; /* Adjust the spacing between groups */
+        }
+
+        .group a {
+            display: block;
             color: #ffffff; /* Set the link color to white */
             text-decoration: none;
-            margin-right: 60px; /* Adjust the spacing between links */
-            font-size: 40px; /* Adjust the font size of the links */
+            margin-bottom: 10px; /* Adjust the spacing between links in a group */
+            font-size: 24px; /* Adjust the font size of the links */
+        }
+
+        .group-title {
+            color: #ffffff;
+            font-size: 30px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
     <div class="links">
-        <a href="https://www.youtube.com" target="_blank">YouTube</a>
-        <a href="https://boards.4channel.org/" target="_blank">4chan</a>
+        <div class="group">
+            <div class="group-title">4chan</div>
+            <a href="https://boards.4chan.org/a/" target="_blank">/a/</a>
+        </div>
+        <div class="group">
+            <div class="group-title">Media</div>
+            <a href="https://www.youtube.com" target="_blank">YouTube</a>
+        </div>
+        <div class="group">
+            <div class="group-title">Else</div>
+            <a href="https://myfigurecollection.net/" target="_blank">MFG</a>
+        </div>
     </div>
 
     <img src="https://i.pinimg.com/originals/8e/8f/1d/8e8f1d842967eb5e91520a74246b358f.gif" alt="Start Page Image">
