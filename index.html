@@ -29,6 +29,7 @@
             color: #ffffff;
             text-decoration: none;
             margin: 10px;
+            cursor: pointer;
         }
 
         iframe {
@@ -40,10 +41,16 @@
 </head>
 <body>
     <div id="links-container">
-        <a href="https://lindion.github.io/custom-start-page/" target="_blank">Home</a>
-        <a href="https://www.youtube.com" target="_blank">YouTube</a>
-        <a href="https://www.4chan.org/" target="_blank">4chan</a>
+        <a href="https://lindion.github.io/custom-start-page/" onclick="openLink('https://lindion.github.io/custom-start-page/'); return false;">Home</a>
+        <a href="https://www.youtube.com" onclick="openLink('https://www.youtube.com'); return false;">YouTube</a>
+        <a href="https://www.4chan.org/" onclick="openLink('https://www.4chan.org/'); return false;">4chan</a>
     </div>
     <iframe src="https://www.youtube.com"></iframe>
+
+    <script>
+        function openLink(url) {
+            window.open(url, '_blank');
+        }
+    </script>
 </body>
 </html>
