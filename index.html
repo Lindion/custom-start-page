@@ -17,9 +17,17 @@
             font-family: 'VT323', monospace; /* Set the custom pixel font */
         }
 
+        img {
+            max-width: 80%; /* Adjust the maximum image width as needed */
+            max-height: 100%;
+            border: 4px solid #ffffff; /* Add a 2px white border around the image */
+            box-sizing: border-box;
+            margin-right: 20px; /* Add space between the gif and the groups */
+        }
+
         .links {
             display: flex;
-            flex-direction: row-reverse; /* Reverse the order of groups and gif */
+            flex-direction: row; /* Arrange groups horizontally */
             justify-content: space-around; /* Add space around the groups */
             align-items: center;
         }
@@ -42,17 +50,11 @@
             font-size: 30px;
             margin-bottom: 10px;
         }
-
-        img {
-            max-width: 80%; /* Adjust the maximum image width as needed */
-            max-height: 100%;
-            border: 4px solid #ffffff; /* Add a 2px white border around the image */
-            box-sizing: border-box;
-            margin-left: 20px; /* Add space between the gif and the groups */
-        }
     </style>
 </head>
 <body>
+    <img src="https://i.pinimg.com/originals/8e/8f/1d/8e8f1d842967eb5e91520a74246b358f.gif" alt="Start Page Image">
+
     <div class="links">
         <div class="group">
             <div class="group-title">4chan</div>
@@ -66,8 +68,6 @@
             <div class="group-title">Else</div>
             <a href="https://myfigurecollection.net/" target="_blank">MFG</a>
         </div>
-
-        <img src="https://i.pinimg.com/originals/8e/8f/1d/8e8f1d842967eb5e91520a74246b358f.gif" alt="Start Page Image">
     </div>
 </body>
 </html>
