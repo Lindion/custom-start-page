@@ -29,16 +29,19 @@
             display: flex;
             flex-direction: row; /* Arrange groups horizontally */
             justify-content: space-around; /* Add space around the groups */
-            align-items: center;
+            align-items: stretch; /* Align items to stretch vertically */
         }
 
         .group {
             text-align: center; /* Center-align the group */
             padding: 10px; /* Add padding for each group */
+            height: 100%; /* Set a fixed height for each group */
+            display: flex;
+            flex-direction: column; /* Arrange items vertically in each group */
         }
 
         .group a {
-            display: block;
+            flex-grow: 1; /* Allow links to take up remaining space */
             color: #ffffff; /* Set the link color to white */
             text-decoration: none;
             margin-bottom: 10px; /* Adjust the spacing between links in a group */
