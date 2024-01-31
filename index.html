@@ -20,21 +20,17 @@
         img {
             max-width: 80%; /* Adjust the maximum image width as needed */
             max-height: 100%;
-            border: 4px solid #ffffff; /* Add a 2px white border around the image */
+            box-shadow: 4px 4px 0px 0px #ffffff, /* Pixel border effect */
+                        -4px -4px 0px 0px #ffffff;
             box-sizing: border-box;
             margin-left: 80px; /* Adjust the spacing between the image and links */
-            animation: wavyBorder 5s infinite linear; /* Apply the wavy border animation */
+            animation: pixelBorder 2s infinite alternate; /* Apply the pixel border animation */
         }
 
-        @keyframes wavyBorder {
-            0% {
-                border-radius: 5px; /* Initial border radius */
-            }
-            50% {
-                border-radius: 20px; /* Maximum border radius at midpoint */
-            }
-            100% {
-                border-radius: 5px; /* Return to initial border radius */
+        @keyframes pixelBorder {
+            to {
+                box-shadow: 8px 8px 0px 0px #ffffff, /* Adjust shadow size for pixel effect */
+                            -8px -8px 0px 0px #ffffff;
             }
         }
 
