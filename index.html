@@ -15,8 +15,6 @@
             align-items: center;
             background-color: #000000;
             font-family: 'VT323', monospace; /* Set the custom pixel font */
-            overflow-y: hidden; /* Hide vertical scroll bar */
-            overflow-x: auto;   /* Enable horizontal scroll bar if needed */
         }
 
         img {
@@ -25,6 +23,19 @@
             border: 4px solid #ffffff; /* Add a 2px white border around the image */
             box-sizing: border-box;
             margin-left: 80px; /* Adjust the spacing between the image and links */
+            animation: wavyBorder 5s infinite linear; /* Apply the wavy border animation */
+        }
+
+        @keyframes wavyBorder {
+            0% {
+                border-radius: 5px; /* Initial border radius */
+            }
+            50% {
+                border-radius: 20px; /* Maximum border radius at midpoint */
+            }
+            100% {
+                border-radius: 5px; /* Return to initial border radius */
+            }
         }
 
         .links {
