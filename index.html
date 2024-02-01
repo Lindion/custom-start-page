@@ -18,7 +18,7 @@
             font-family: 'VT323', monospace;
             position: relative;
             background-size: cover;
-            transition: background-image 1s ease-in-out;
+            transition: background-position-x 1s linear;
         }
 
         .overlay {
@@ -29,6 +29,17 @@
             height: 100%;
             backdrop-filter: blur(10px);
             z-index: -1;
+        }
+
+        .background-container {
+            display: flex;
+            width: 400%; /* 100% * number of backgrounds */
+            animation: scrollBackgrounds 40s linear infinite; /* Adjust the duration based on your preference */
+        }
+
+        .background {
+            flex: 1;
+            background-size: cover;
         }
 
         img {
@@ -96,6 +107,16 @@
             background-color: #ffffff;
             color: #000000;
         }
+
+        @keyframes scrollBackgrounds {
+            0% {
+                background-position-x: 0%;
+            }
+
+            100% {
+                background-position-x: 100%;
+            }
+        }
     </style>
     <script>
         // Preload background images
@@ -115,22 +136,35 @@
         // Index of the current background
         let backgroundIndex = Math.floor(Math.random() * backgrounds.length);
 
-        // Function to update the background image with a slide-in animation
-        function updateBackground() {
+        // Function to set initial background
+        function setInitialBackground() {
             document.body.style.backgroundImage = `url('${backgrounds[backgroundIndex]}')`;
-            backgroundIndex = (backgroundIndex + 1) % backgrounds.length;
+            document.querySelector('.background-container').style.backgroundPositionX = `${backgroundIndex * 100}%`;
         }
 
         // Set initial background on page load
-        window.onload = function () {
-            updateBackground();
-            setInterval(updateBackground, 10000); // 10 seconds interval
-        };
+        window.onload = setInitialBackground;
+
+        // Function to update the background index and position
+        function updateBackground() {
+            backgroundIndex = (backgroundIndex + 1) % backgrounds.length;
+            document.body.style.backgroundImage = `url('${backgrounds[backgroundIndex]}')`;
+            document.querySelector('.background-container').style.backgroundPositionX = `${backgroundIndex * 100}%`;
+        }
     </script>
 </head>
 
 <body>
     <div class="overlay" id="blurOverlay"></div>
+
+    <div class="background-container">
+        <!-- Backgrounds -->
+        <div class="background" style="background-image: url('https://i.imgur.com/0IWb7dn.gif');"></div>
+        <div class="background" style="background-image: url('https://wallpaperaccess.com/full/775121.gif');"></div>
+        <div class="background"
+            style="background-image: url('https://i.pinimg.com/originals/5b/a5/23/5ba523a4a02534cdf9acb37a3732c5f8.gif');"></div>
+        <div class="background" style="background-image: url('https://wallpapercave.com/wp/wp9637442.gif');"></div>
+    </div>
 
     <div class="links">
         <div class="group">
@@ -159,17 +193,14 @@
         </div>
     </div>
 
-    <img src="https://i.pinimg.com/originals/8e/8f/1d/8e8f1d842967eb5e91520a74246b358f.gif" alt="Start Page Image">
-
-    <!-- Buttons for toggling features -->
     <div class="toggle-buttons">
         <button class="toggle-button" onclick="toggleBlur()">B</button>
         <button class="toggle-button" onclick="toggleGroups()">G</button>
         <button class="toggle-button" onclick="toggleImage()">P</button>
+        <button class="toggle-button" onclick="updateBackground()">1</button>
     </div>
 
     <script>
-        // Variables to track the state of features
         let blurEnabled = true;
         let groupsEnabled = true;
         let imageEnabled = true;
@@ -177,27 +208,24 @@
         // Function to toggle blur effect
         function toggleBlur() {
             const overlay = document.getElementById('blurOverlay');
-            overlay.style.backdropFilter = blurEnabled ? 'blur(0)' : 'blur(10px)';
             blurEnabled = !blurEnabled;
-
+            overlay.style.backdropFilter = blurEnabled ? 'blur(10px)' : 'blur(0)';
             document.querySelector('.toggle-button').classList.toggle('active', blurEnabled);
         }
 
         // Function to toggle visibility of groups
         function toggleGroups() {
             const links = document.querySelector('.links');
-            links.style.display = groupsEnabled ? 'none' : 'flex';
             groupsEnabled = !groupsEnabled;
-
+            links.style.display = groupsEnabled ? 'flex' : 'none';
             document.querySelector('.toggle-button').classList.toggle('active', groupsEnabled);
         }
 
         // Function to toggle visibility of the image
         function toggleImage() {
-            const image = document.querySelector('img');
-            image.style.display = imageEnabled ? 'none' : 'block';
+            const image = document.querySelector('.background-container');
             imageEnabled = !imageEnabled;
-
+            image.style.display = imageEnabled ? 'flex' : 'none';
             document.querySelector('.toggle-button').classList.toggle('active', imageEnabled);
         }
     </script>
