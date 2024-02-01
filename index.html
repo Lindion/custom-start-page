@@ -78,6 +78,11 @@
             padding: 10px;
             border-radius: 50%;
             cursor: pointer;
+            width: 40px; /* Set width and height to make it round */
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
@@ -116,9 +121,13 @@
     <button class="toggle-button" onclick="toggleBlur()">B</button>
 
     <script>
+        let blurEnabled = true; // Track whether blur is currently enabled
+
         function toggleBlur() {
             const overlay = document.getElementById('blurOverlay');
-            overlay.style.backdropFilter = (overlay.style.backdropFilter === 'blur(10px)') ? 'blur(0)' : 'blur(10px)';
+            // Toggle the backdrop-filter property
+            overlay.style.backdropFilter = blurEnabled ? 'blur(0)' : 'blur(10px)';
+            blurEnabled = !blurEnabled; // Update the status
         }
     </script>
 </body>
