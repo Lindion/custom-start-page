@@ -123,6 +123,28 @@
             const img = new Image();
             img.src = src;
         });
+
+        let backgroundIndex = 0;
+        function changeBackground() {
+            const currentBackground = document.getElementById('currentBackground');
+            const nextIndex = (backgroundIndex + 1) % backgrounds.length;
+
+            const nextBackground = document.getElementById('nextBackground');
+            nextBackground.style.backgroundImage = `url('${backgrounds[nextIndex]}')`;
+            nextBackground.style.opacity = '1';
+
+            setTimeout(() => {
+                currentBackground.style.opacity = '0';
+                backgroundIndex = nextIndex;
+            }, 1000); // 1000ms delay before fading out the current background
+        }
+
+        // Set the interval time (in milliseconds)
+        const intervalTime = 10000; // 10 seconds
+        setInterval(changeBackground, intervalTime);
+        
+        // Initial background
+        changeBackground();
     </script>
 </head>
 <body>
@@ -157,10 +179,8 @@
 
     <img src="https://i.pinimg.com/originals/8e/8f/1d/8e8f1d842967eb5e91520a74246b358f.gif" alt="Start Page Image">
 
-    <div class="background" id="background0"></div>
-    <div class="background" id="background1" style="opacity: 0;"></div>
-    <div class="background" id="background2" style="opacity: 0;"></div>
-    <div class="background" id="background3" style="opacity: 0;"></div>
+    <div class="background" id="currentBackground"></div>
+    <div class="background hidden" id="nextBackground"></div>
 
     <button class="toggle-button" onclick="toggleBlur()">B</button>
     <button class="toggle-button-group" onclick="toggleGroups()">G</button>
@@ -194,33 +214,6 @@
 
             document.querySelector('.toggle-button-image').classList.toggle('active', imageEnabled);
         }
-
-        // Background change logic
-        let backgroundIndex = 0;
-        const backgrounds = [
-            'https://i.imgur.com/0IWb7dn.gif',
-            'https://wallpaperaccess.com/full/775121.gif',
-            'https://i.pinimg.com/originals/5b/a5/23/5ba523a4a02534cdf9acb37a3732c5f8.gif',
-            'https://wallpapercave.com/wp/wp9637442.gif'
-        ];
-
-        function changeBackground() {
-            const currentBackground = document.getElementById(`background${backgroundIndex}`);
-            const nextIndex = (backgroundIndex + 1) % backgrounds.length;
-            const nextBackground = document.getElementById(`background${nextIndex}`);
-
-            currentBackground.style.opacity = '0';
-            nextBackground.style.opacity = '1';
-
-            backgroundIndex = nextIndex;
-        }
-
-        // Set the interval time (in milliseconds)
-        const intervalTime = 10000; // 10 seconds
-        setInterval(changeBackground, intervalTime);
-        
-        // Initial background
-        changeBackground();
     </script>
 </body>
 </html>
