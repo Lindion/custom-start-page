@@ -21,18 +21,18 @@
         img {
             max-width: 80%; /* Adjust the maximum image width as needed */
             max-height: 100%;
-            border: 4px solid #ffffff; /* Add a 2px white border around the image */
+            border: 4px solid transparent; /* Set a transparent border initially */
             box-sizing: border-box;
             margin-left: 80px; /* Adjust the spacing between the image and links */
-            animation: rotateAndScale 6s infinite alternate; /* Apply the rotate and scale animation */
+            animation: borderAnimation 6s infinite alternate; /* Apply the border animation */
         }
 
-        @keyframes rotateAndScale {
-            0% {
-                transform: rotate(0deg) scale(1);
+        @keyframes borderAnimation {
+            0%, 100% {
+                border-image-source: linear-gradient(to right, #ffffff, transparent); /* Set the border image gradient */
             }
-            100% {
-                transform: rotate(360deg) scale(1.1);
+            50% {
+                border-image-source: linear-gradient(to right, transparent, #ffffff); /* Reverse the gradient at 50% */
             }
         }
 
