@@ -21,18 +21,26 @@
         img {
             max-width: 80%; /* Adjust the maximum image width as needed */
             max-height: 100%;
-            border: 4px solid transparent; /* Set a transparent border initially */
+            border: none; /* Remove the border */
             box-sizing: border-box;
             margin-left: 80px; /* Adjust the spacing between the image and links */
-            animation: borderAnimation 6s infinite alternate; /* Apply the border animation */
+            position: relative;
         }
 
-        @keyframes borderAnimation {
-            0%, 100% {
-                border-image-source: linear-gradient(to right, #ffffff, transparent); /* Set the border image gradient */
+        .border-line {
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #ffffff; /* Set the color of the rotating line */
+            animation: rotateLine 5s linear infinite; /* Apply the rotation animation */
+        }
+
+        @keyframes rotateLine {
+            0% {
+                transform: rotate(0deg);
             }
-            50% {
-                border-image-source: linear-gradient(to right, transparent, #ffffff); /* Reverse the gradient at 50% */
+            100% {
+                transform: rotate(360deg);
             }
         }
 
@@ -95,5 +103,6 @@
     </div>
 
     <img src="https://i.pinimg.com/originals/8e/8f/1d/8e8f1d842967eb5e91520a74246b358f.gif" alt="Start Page Image">
+    <div class="border-line"></div>
 </body>
 </html>
