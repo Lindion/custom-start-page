@@ -9,7 +9,7 @@ body {
     font-family: 'VT323', monospace;
     position: relative;
     background-size: cover;
-    transition: background-image 0.5s ease-in-out;
+    animation: slide-in 0.5s forwards;
 }
 
 .overlay {
@@ -43,7 +43,6 @@ img {
     height: 100%;
     display: flex;
     flex-direction: column;
-    font-family: 'VT323', monospace; /* Add the font-family here */
 }
 
 .group a {
@@ -93,10 +92,11 @@ img {
 }
 
 @keyframes slide-in {
+    0% { transform: translateX(-100%); }
     100% { transform: translateX(0%); }
 }
 
 @keyframes slide-out {
     0% { transform: translateX(0%); }
-    100% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
 }
