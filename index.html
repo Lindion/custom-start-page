@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&display=swap">
     <style>
         body {
-            --max-blur-size: 15px; /* Set the maximum blur size */
-            --blur-fade: 50; /* Set the initial fade value (adjust as needed) */
             margin: 0;
             padding: 20px; /* Add padding to create space around the content */
             display: flex;
@@ -17,9 +15,6 @@
             align-items: center;
             overflow: hidden; /* Hide the scroll bar */
             font-family: 'VT323', monospace; /* Set the custom pixel font */
-            background: url('https://i.imgur.com/0IWb7dn.gif') no-repeat fixed center; /* Add background image */
-            background-size: cover; /* Cover the entire viewport */
-            position: relative; /* Set position to relative for z-index */
         }
 
         body::before {
@@ -32,7 +27,7 @@
             z-index: -1;
             background: url('https://i.imgur.com/0IWb7dn.gif') no-repeat fixed center;
             background-size: cover;
-            filter: blur(calc(var(--max-blur-size) * (1 - (var(--blur-fade) / 100))));
+            opacity: 0.7; /* Adjust the opacity value as needed (0 to 1) */
         }
 
         img {
