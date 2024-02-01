@@ -15,27 +15,8 @@
             align-items: center;
             overflow: hidden; /* Hide the scroll bar */
             font-family: 'VT323', monospace; /* Set the custom pixel font */
-        }
-
-        #backgroundWrapper {
-            position: relative;
-            max-width: 500px; /* Adjust the maximum width as needed */
-            height: 500px; /* Adjust the maximum height as needed */
-        }
-
-        #blurredBackground, #content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        #blurredBackground {
-            background: url('https://i.imgur.com/0IWb7dn.gif');
-            background-size: cover;
-            filter: blur(5px);
-            z-index: 1;
+            background: url('https://i.imgur.com/0IWb7dn.gif') no-repeat fixed center; /* Add background image */
+            background-size: cover; /* Cover the entire viewport */
         }
 
         img {
@@ -77,38 +58,33 @@
     </style>
 </head>
 <body>
-    <div id="backgroundWrapper">
-        <div id="blurredBackground"></div>
-        <div id="content">
-            <div class="links">
-                <div class="group">
-                    <div class="group-title">4chan</div>
-                    <a href="https://boards.4chan.org/a/" target="_blank">/a/</a>
-                    <a href="https://boards.4chan.org/jp/" target="_blank">/jp/</a>
-                    <a href="https://boards.4chan.org/vg/" target="_blank">/vg/</a>
-                    <a href="https://boards.4chan.org/wsg/" target="_blank">/wsg/</a>
-                    <a href="https://boards.4chan.org/r9k/" target="_blank">/r9k/</a>
-                    <a href="https://boards.4chan.org/int/" target="_blank">/int/</a>
-                </div>
-                <div class="group">
-                    <div class="group-title">Media</div>
-                    <a href="https://twitter.com" target="_blank">Twitter</a>
-                    <a href="https://www.youtube.com" target="_blank">YouTube</a>
-                    <a href="https://www.2chan.net/" target="_blank">2Chan</a>
-                    <a href="https://www.twitch.tv/" target="_balnk">Twitch</a>
-                    <a href="https://soundcloud.com/user-326590673" target="_blank">Soundcloud</a>
-                </div>
-                <div class="group">
-                    <div class="group-title">Else</div>
-                    <a href="https://myfigurecollection.net/" target="_blank">MFG</a>
-                    <a href="https://github.com/" target="_blank">Github</a>
-                    <a href="https://chat.openai.com/" target="_blank">ChatGPT</a>
-                    <a href="https://catbox.moe/" target="_blank">Catbox</a>
-                </div>
-            </div>
-
-            <img src="https://i.pinimg.com/originals/8e/8f/1d/8e8f1d842967eb5e91520a74246b358f.gif" alt="Start Page Image">
+    <div class="links">
+        <div class="group">
+            <div class="group-title">4chan</div>
+            <a href="https://boards.4chan.org/a/" target="_blank">/a/</a>
+            <a href="https://boards.4chan.org/jp/" target="_blank">/jp/</a>
+            <a href="https://boards.4chan.org/vg/" target="_blank">/vg/</a>
+            <a href="https://boards.4chan.org/wsg/" target="_blank">/wsg/</a>
+            <a href="https://boards.4chan.org/r9k/" target="_blank">/r9k/</a>
+            <a href="https://boards.4chan.org/int/" target="_blank">/int/</a>
+        </div>
+        <div class="group">
+            <div class="group-title">Media</div>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+            <a href="https://www.youtube.com" target="_blank">YouTube</a>
+            <a href="https://www.2chan.net/" target="_blank">2Chan</a>
+            <a href="https://www.twitch.tv/" target="_balnk">Twitch</a>
+            <a href="https://soundcloud.com/user-326590673" target="_blank">Soundcloud</a>
+        </div>
+        <div class="group">
+            <div class="group-title">Else</div>
+            <a href="https://myfigurecollection.net/" target="_blank">MFG</a>
+            <a href="https://github.com/" target="_blank">Github</a>
+            <a href="https://chat.openai.com/" target="_blank">ChatGPT</a>
+            <a href="https://catbox.moe/" target="_blank">Catbox</a>
         </div>
     </div>
+
+    <img src="https://i.pinimg.com/originals/8e/8f/1d/8e8f1d842967eb5e91520a74246b358f.gif" alt="Start Page Image">
 </body>
 </html>
