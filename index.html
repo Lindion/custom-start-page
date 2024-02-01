@@ -8,15 +8,15 @@
     <style>
         body {
             margin: 0;
-            padding: 20px; /* Add padding to create space around the content */
+            padding: 20px;
             display: flex;
             height: 100vh;
-            justify-content: center; /* Center content horizontally */
+            justify-content: center;
             align-items: center;
-            overflow: hidden; /* Hide the scroll bar */
-            font-family: 'VT323', monospace; /* Set the custom pixel font */
-            background: url('https://i.imgur.com/0IWb7dn.gif') no-repeat fixed center; /* Add background image */
-            background-size: cover; /* Cover the entire viewport */
+            overflow: hidden;
+            font-family: 'VT323', monospace;
+            background: url('https://i.imgur.com/0IWb7dn.gif') no-repeat fixed center;
+            background-size: cover;
             position: relative;
         }
 
@@ -26,40 +26,40 @@
             left: 0;
             width: 100%;
             height: 100%;
-            backdrop-filter: blur(10px); /* Adjust the blur value as needed */
+            backdrop-filter: blur(10px);
             z-index: -1;
-            transition: backdrop-filter 0.5s ease; /* Add smooth transition */
+            transition: backdrop-filter 0.5s ease;
         }
 
         img {
-            max-width: 80%; /* Adjust the maximum image width as needed */
+            max-width: 80%;
             max-height: 100%;
-            border: 4px solid #ffffff; /* Add a 2px white border around the image */
+            border: 4px solid #ffffff;
             box-sizing: border-box;
-            margin-right: 80px; /* Adjust the spacing between the image and links */
+            margin: 0 80px; /* Adjust the margin to center the image */
         }
 
         .links {
             display: flex;
-            flex-direction: row; /* Arrange groups horizontally */
-            justify-content: space-around; /* Add space around the groups */
-            align-items: stretch; /* Align items to stretch vertically */
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: stretch;
         }
 
         .group {
-            text-align: center; /* Center-align the group */
-            padding: 40px; /* Add padding for each group */
-            height: 100%; /* Set a fixed height for each group */
+            text-align: center;
+            padding: 40px;
+            height: 100%;
             display: flex;
-            flex-direction: column; /* Arrange items vertically in each group */
+            flex-direction: column;
         }
 
         .group a {
-            flex-grow: 1; /* Allow links to take up remaining space */
-            color: #ffffff; /* Set the link color to white */
+            flex-grow: 1;
+            color: #ffffff;
             text-decoration: none;
-            margin-bottom: 10px; /* Adjust the spacing between links in a group */
-            font-size: 24px; /* Adjust the font size of the links */
+            margin-bottom: 10px;
+            font-size: 24px;
         }
 
         .group-title {
@@ -71,22 +71,21 @@
         .toggle-button {
             position: absolute;
             top: 20px;
-            left: 50%; /* Move to the middle */
-            transform: translateX(-50%); /* Center horizontally */
+            left: 50%;
+            transform: translateX(-50%);
             background-color: #ffffff;
             color: #000000;
             border: none;
             padding: 10px;
             border-radius: 50%;
             cursor: pointer;
-            width: 40px; /* Set width and height to make it round */
+            width: 40px;
             height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
-        /* New buttons for toggling groups and image */
         .toggle-button-group, .toggle-button-image {
             position: absolute;
             top: 20px;
@@ -96,7 +95,7 @@
             padding: 10px;
             border-radius: 50%;
             cursor: pointer;
-            width: 40px; /* Set width and height to make it round */
+            width: 40px;
             height: 40px;
             display: flex;
             align-items: center;
@@ -104,18 +103,18 @@
         }
 
         .toggle-button-group {
-            left: 50%; /* Move to the middle */
-            transform: translateX(-100px); /* Center horizontally, adjust as needed */
+            left: 50%;
+            transform: translateX(-100px);
         }
 
         .toggle-button-image {
-            left: 50%; /* Move to the middle */
-            transform: translateX(60px); /* Center horizontally, adjust as needed */
+            left: 50%;
+            transform: translateX(60px);
         }
     </style>
 </head>
 <body>
-    <div class="overlay" id="blurOverlay"></div> <!-- Add overlay div -->
+    <div class="overlay" id="blurOverlay"></div>
     
     <div class="links">
         <div class="group">
@@ -148,32 +147,31 @@
 
     <img src="https://i.pinimg.com/originals/8e/8f/1d/8e8f1d842967eb5e91520a74246b358f.gif" alt="Start Page Image">
     
-    <!-- Toggle buttons for blur, groups, and image -->
     <button class="toggle-button" onclick="toggleBlur()">B</button>
     <button class="toggle-button-group" onclick="toggleGroups()">G</button>
     <button class="toggle-button-image" onclick="toggleImage()">P</button>
 
     <script>
-        let blurEnabled = true; // Track whether blur is currently enabled
-        let groupsVisible = true; // Track whether groups are currently visible
-        let imageVisible = true; // Track whether image is currently visible
+        let blurEnabled = true;
+        let groupsEnabled = true;
+        let imageEnabled = true;
 
         function toggleBlur() {
             const overlay = document.getElementById('blurOverlay');
             overlay.style.backdropFilter = blurEnabled ? 'blur(0)' : 'blur(10px)';
-            blurEnabled = !blurEnabled; // Update the status
+            blurEnabled = !blurEnabled;
         }
 
         function toggleGroups() {
-            const groups = document.querySelector('.links');
-            groups.style.display = groupsVisible ? 'none' : 'flex';
-            groupsVisible = !groupsVisible; // Update the status
+            const links = document.querySelector('.links');
+            links.style.display = groupsEnabled ? 'none' : 'flex';
+            groupsEnabled = !groupsEnabled;
         }
 
         function toggleImage() {
             const image = document.querySelector('img');
-            image.style.display = imageVisible ? 'none' : 'block';
-            imageVisible = !imageVisible; // Update the status
+            image.style.display = imageEnabled ? 'none' : 'block';
+            imageEnabled = !imageEnabled;
         }
     </script>
 </body>
