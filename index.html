@@ -15,10 +15,12 @@
     </script>
 </head>
 <body>
-    <div class="background-container" id="backgroundContainer">
+    <div class="background-container">
         <div class="overlay" id="blurOverlay"></div>
         
         <div class="content">
+            <img src="https://i.pinimg.com/originals/8e/8f/1d/8e8f1d842967eb5e91520a74246b358f.gif" alt="Start Page Image">
+
             <div class="links">
                 <div class="group">
                     <div class="group-title">4chan</div>
@@ -46,11 +48,11 @@
                 </div>
             </div>
 
-            <img src="https://i.pinimg.com/originals/8e/8f/1d/8e8f1d842967eb5e91520a74246b358f.gif" alt="Start Page Image">
-
-            <button class="toggle-button" onclick="toggleBlur()">B</button>
-            <button class="toggle-button-group" onclick="toggleGroups()">G</button>
-            <button class="toggle-button-image" onclick="toggleImage()">P</button>
+            <div class="toggle-buttons">
+                <button class="toggle-button" onclick="toggleBlur()">B</button>
+                <button class="toggle-button" onclick="toggleGroups()">G</button>
+                <button class="toggle-button" onclick="toggleImage()">P</button>
+            </div>
         </div>
     </div>
 
@@ -72,7 +74,7 @@
             links.style.display = groupsEnabled ? 'none' : 'flex';
             groupsEnabled = !groupsEnabled;
 
-            document.querySelector('.toggle-button-group').classList.toggle('active', groupsEnabled);
+            document.querySelector('.toggle-button').classList.toggle('active', groupsEnabled);
         }
 
         function toggleImage() {
@@ -80,36 +82,8 @@
             image.style.display = imageEnabled ? 'none' : 'block';
             imageEnabled = !imageEnabled;
 
-            document.querySelector('.toggle-button-image').classList.toggle('active', imageEnabled);
+            document.querySelector('.toggle-button').classList.toggle('active', imageEnabled);
         }
-
-        // Change background with slide-in effect
-        let backgroundIndex = 0;
-        const backgrounds = [
-            'https://i.imgur.com/0IWb7dn.gif',
-            'https://wallpaperaccess.com/full/775121.gif',
-            'https://i.pinimg.com/originals/5b/a5/23/5ba523a4a02534cdf9acb37a3732c5f8.gif',
-            'https://wallpapercave.com/wp/wp9637442.gif'
-        ];
-
-        function changeBackground() {
-            const newBackground = backgrounds[backgroundIndex];
-            const backgroundContainer = document.getElementById('backgroundContainer');
-            backgroundContainer.style.animation = 'slide-out 0.5s forwards';
-
-            setTimeout(() => {
-                backgroundContainer.style.backgroundImage = `url('${newBackground}')`;
-                backgroundContainer.style.animation = 'slide-in 0.5s forwards';
-                backgroundIndex = (backgroundIndex + 1) % backgrounds.length;
-            }, 500);
-        }
-
-        // Set the interval time (in milliseconds)
-        const intervalTime = 10000; // 10 seconds
-        setInterval(changeBackground, intervalTime);
-
-        // Initial background
-        changeBackground();
     </script>
 </body>
 </html>
