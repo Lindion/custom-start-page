@@ -69,7 +69,8 @@
 
         .toggle-button,
         .toggle-button-group,
-        .toggle-button-image {
+        .toggle-button-image,
+        .toggle-button-background {
             position: absolute;
             top: 20px;
             width: 40px;
@@ -93,12 +94,17 @@
 
         .toggle-button-group {
             left: 50%;
-            transform: translateX(-100px);
+            transform: translateX(-150px);
         }
 
         .toggle-button-image {
             left: 50%;
-            transform: translateX(60px);
+            transform: translateX(-100px);
+        }
+
+        .toggle-button-background {
+            left: 50%;
+            transform: translateX(0);
         }
     </style>
     <script>
@@ -107,6 +113,27 @@
         new Image().src = 'https://wallpaperaccess.com/full/775121.gif';
         new Image().src = 'https://i.pinimg.com/originals/5b/a5/23/5ba523a4a02534cdf9acb37a3732c5f8.gif';
         new Image().src = 'https://wallpapercave.com/wp/wp9637442.gif';
+
+        // Array of background images
+        const backgrounds = [
+            'https://i.imgur.com/0IWb7dn.gif',
+            'https://wallpaperaccess.com/full/775121.gif',
+            'https://i.pinimg.com/originals/5b/a5/23/5ba523a4a02534cdf9acb37a3732c5f8.gif',
+            'https://wallpapercave.com/wp/wp9637442.gif'
+        ];
+
+        // Randomly choose a background on page load
+        let backgroundIndex = Math.floor(Math.random() * backgrounds.length);
+        updateBackground();
+
+        function updateBackground() {
+            document.body.style.backgroundImage = `url('${backgrounds[backgroundIndex]}')`;
+        }
+
+        function nextBackground() {
+            backgroundIndex = (backgroundIndex + 1) % backgrounds.length;
+            updateBackground();
+        }
     </script>
 </head>
 
@@ -142,9 +169,8 @@
 
     <img src="https://i.pinimg.com/originals/8e/8f/1d/8e8f1d842967eb5e91520a74246b358f.gif" alt="Start Page Image">
 
-    <button class="toggle-button" onclick="toggleBlur()">B</button>
-    <button class="toggle-button-group" onclick="toggleGroups()">G</button>
-    <button class="toggle-button-image" onclick="toggleImage()">P</button>
+    <!-- New button for changing backgrounds -->
+    <button class="toggle-button-background" onclick="nextBackground()">B</button>
 
     <script>
         let blurEnabled = true;
@@ -174,27 +200,6 @@
 
             document.querySelector('.toggle-button-image').classList.toggle('active', imageEnabled);
         }
-
-        // Change background every specified seconds
-        let backgroundIndex = 0;
-        const backgrounds = [
-            'https://i.imgur.com/0IWb7dn.gif',
-            'https://wallpaperaccess.com/full/775121.gif',
-            'https://i.pinimg.com/originals/5b/a5/23/5ba523a4a02534cdf9acb37a3732c5f8.gif',
-            'https://wallpapercave.com/wp/wp9637442.gif'
-        ];
-
-        function changeBackground() {
-            document.body.style.backgroundImage = `url('${backgrounds[backgroundIndex]}')`;
-            backgroundIndex = (backgroundIndex + 1) % backgrounds.length;
-        }
-
-        // Set the interval time (in milliseconds)
-        const intervalTime = 10000; // 10 seconds
-        setInterval(changeBackground, intervalTime);
-
-        // Initial background
-        changeBackground();
     </script>
 </body>
 
