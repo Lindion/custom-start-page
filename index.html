@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Meta tags for character set and viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Page title -->
     <title>Custom Start Page</title>
-    <!-- Google Fonts link for pixel font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&display=swap">
-    <!-- Inline CSS for styling -->
     <style>
         body {
             margin: 0;
@@ -19,10 +15,10 @@
             align-items: center;
             overflow: hidden; /* Hide the scroll bar */
             font-family: 'VT323', monospace; /* Set the custom pixel font */
-            /* Add background image */
-            background: url('https://i.imgur.com/0IWb7dn.gif') no-repeat fixed center;
-            /* Cover the entire viewport */
-            background-size: cover;
+            background: url('https://i.imgur.com/0IWb7dn.gif') no-repeat fixed center; /* Add background image */
+            background-size: cover; /* Cover the entire viewport */
+            -webkit-filter: blur(5px); /* Add a blur effect to the background for webkit browsers */
+            filter: blur(5px); /* Add a blur effect to the background */
         }
 
         img {
