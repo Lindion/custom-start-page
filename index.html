@@ -22,14 +22,14 @@
 
         body::before {
             content: "";
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
             background: url('https://i.imgur.com/0IWb7dn.gif') no-repeat fixed center;
-            background-size: cover;
+            background-size: 120%; /* Increase the size to cover the entire viewport and create an overflow for the blur */
             filter: blur(5px); /* Apply a blur effect directly to the background */
         }
 
