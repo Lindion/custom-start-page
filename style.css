@@ -1,15 +1,13 @@
 body {
     margin: 0;
-    padding: 20px;
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    padding: 0;
     font-family: 'VT323', monospace;
+}
+
+.background-container {
     position: relative;
-    background-size: cover;
-    animation: slide-in 0.5s forwards;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .overlay {
@@ -28,6 +26,10 @@ img {
     border: 4px solid #ffffff;
     box-sizing: border-box;
     margin: 0 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .links {
@@ -35,18 +37,20 @@ img {
     flex-direction: row;
     justify-content: space-around;
     align-items: stretch;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .group {
     text-align: center;
     padding: 40px;
-    height: 100%;
     display: flex;
     flex-direction: column;
 }
 
 .group a {
-    flex-grow: 1;
     color: #ffffff;
     text-decoration: none;
     margin-bottom: 10px;
@@ -70,7 +74,6 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'VT323', monospace;
     background-color: rgba(0, 0, 0, 0.3);
     color: #ffffff;
     font-size: 24px;
