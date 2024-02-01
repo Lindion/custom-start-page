@@ -80,11 +80,6 @@
             align-items: center;
             justify-content: center;
             font-family: 'VT323', monospace;
-            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Add transition for scaling effect */
-        }
-
-        .toggle-button:hover, .toggle-button-group:hover, .toggle-button-image:hover {
-            transform: scale(1);
         }
 
         .toggle-button {
@@ -95,30 +90,20 @@
             font-size: 24px;
         }
         
-        .toggle-button-group, .toggle-button-image {
+        .toggle-button-group {
+            left: 50%;
+            transform: translateX(-100px);
             background-color: rgba(0, 0, 0, 0.3);
             color: #ffffff;
             font-size: 24px;
         }
 
-        .toggle-button-group {
-            left: 50%;
-            transform: translateX(-100px);
-        }
-
         .toggle-button-image {
             left: 50%;
             transform: translateX(60px);
-        }
-
-        .toggle-button.active, .toggle-button-group.active, .toggle-button-image.active {
-            background-color: rgba(255, 255, 255, 0.5);
-            color: #000000;
-        }
-
-        .toggle-button.active:hover, .toggle-button-group.active:hover, .toggle-button-image.active:hover {
-            background-color: rgba(255, 255, 255, 0.5);
-            color: #000000;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: #ffffff;
+            font-size: 24px;
         }
     </style>
 </head>
