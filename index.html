@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Start Page</title>
+    <!-- Preload the custom font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&display=swap" as="style" onload="this.rel='stylesheet'">
+    <!-- Preload the start page image -->
     <link rel="preload" href="https://media.giphy.com/media/nzdbn9Hg1SigU/giphy.gif" as="image">
+    <!-- Style section for CSS -->
     <style>
+        /* Base styling for the entire page */
         body {
             margin: 0;
             padding: 20px;
@@ -20,6 +24,7 @@
             background-size: cover;
         }
 
+        /* Overlay for the blur effect */
         .overlay {
             position: absolute;
             top: 0;
@@ -30,6 +35,7 @@
             z-index: -1;
         }
 
+        /* Styling for the start page image */
         img {
             max-width: 80%;
             max-height: 100%;
@@ -38,6 +44,7 @@
             margin: 0 80px;
         }
 
+        /* Container for link groups with background overlay */
         .links {
             display: flex;
             flex-direction: row;
@@ -46,7 +53,7 @@
             position: relative;
         }
 
-        /* Add this style for the black box */
+        /* Black box overlay behind the link groups */
         .links::before {
             content: "";
             position: absolute;
@@ -58,14 +65,18 @@
             z-index: -1;
         }
 
+        /* Styling for each link group */
         .group {
             text-align: center;
             padding: 40px;
             height: 100%;
             display: flex;
             flex-direction: column;
+            border: 2px solid #ffffff; /* White border around the group box */
+            box-sizing: border-box; /* Ensure border is included in the box size */
         }
 
+        /* Styling for links within each group */
         .group a {
             flex-grow: 1;
             color: #ffffff;
@@ -74,12 +85,14 @@
             font-size: 20px;
         }
 
+        /* Styling for group titles */
         .group-title {
             color: #ffffff;
             font-size: 30px;
             margin-bottom: 10px;
         }
 
+        /* Styling for toggle buttons */
         .toggle-button, .toggle-button-group, .toggle-button-image {
             position: absolute;
             top: 20px;
@@ -97,21 +110,25 @@
             font-size: 24px;
         }
 
+        /* Positioning for the blur toggle button */
         .toggle-button {
             left: 50%;
             transform: translateX(-50%);
         }
-        
+
+        /* Positioning for the link groups toggle button */
         .toggle-button-group {
             left: 50%;
             transform: translateX(-100px);
         }
 
+        /* Positioning for the start page image toggle button */
         .toggle-button-image {
             left: 50%;
             transform: translateX(60px);
         }
     </style>
+    <!-- JavaScript for functionality -->
     <script>
         // Preload background images
         new Image().src = 'https://media1.tenor.com/images/6dffdfbecaeaf857ec914d40e1a1e2f6/tenor.gif?itemid=16623134';
@@ -121,9 +138,12 @@
     </script>
 </head>
 <body>
+    <!-- Overlay for the blur effect -->
     <div class="overlay" id="blurOverlay"></div>
-    
+
+    <!-- Container for link groups with black box overlay -->
     <div class="links">
+        <!-- Link group for 4chan -->
         <div class="group">
             <div class="group-title">4chan</div>
             <a href="https://boards.4chan.org/a/" target="_blank">/a/</a>
@@ -133,6 +153,7 @@
             <a href="https://boards.4chan.org/r9k/" target="_blank">/r9k/</a>
             <a href="https://boards.4chan.org/int/" target="_blank">/int/</a>
         </div>
+        <!-- Link group for media -->
         <div class="group">
             <div class="group-title">Media</div>
             <a href="https://twitter.com" target="_blank">Twitter</a>
@@ -141,6 +162,7 @@
             <a href="https://www.twitch.tv/" target="_blank">Twitch</a>
             <a href="https://soundcloud.com/user-326590673" target="_blank">Soundcloud</a>
         </div>
+        <!-- Link group for other links -->
         <div class="group">
             <div class="group-title">Else</div>
             <a href="https://myfigurecollection.net/" target="_blank">MFG</a>
@@ -150,17 +172,26 @@
         </div>
     </div>
 
+    <!-- Start page image -->
     <img src="https://media.giphy.com/media/nzdbn9Hg1SigU/giphy.gif" alt="Start Page Image">
 
+    <!-- Blur toggle button -->
     <button class="toggle-button" onclick="toggleBlur()">B</button>
+    <!-- Link groups toggle button -->
     <button class="toggle-button-group" onclick="toggleGroups()">G</button>
+    <!-- Start page image toggle button -->
     <button class="toggle-button-image" onclick="toggleImage()">P</button>
 
+    <!-- JavaScript for functionality -->
     <script>
+        // Variable to track blur toggle state
         let blurEnabled = true;
+        // Variable to track link groups toggle state
         let groupsEnabled = true;
+        // Variable to track start page image toggle state
         let imageEnabled = true;
 
+        // Function to toggle blur effect
         function toggleBlur() {
             const overlay = document.getElementById('blurOverlay');
             overlay.style.backdropFilter = blurEnabled ? 'blur(0)' : 'blur(10px)';
@@ -169,6 +200,7 @@
             document.querySelector('.toggle-button').classList.toggle('active', blurEnabled);
         }
 
+        // Function to toggle visibility of link groups
         function toggleGroups() {
             const links = document.querySelector('.links');
             links.style.display = groupsEnabled ? 'none' : 'flex';
@@ -177,6 +209,7 @@
             document.querySelector('.toggle-button-group').classList.toggle('active', groupsEnabled);
         }
 
+        // Function to toggle visibility of start page image
         function toggleImage() {
             const image = document.querySelector('img');
             image.style.display = imageEnabled ? 'none' : 'block';
@@ -194,15 +227,16 @@
             'https://66.media.tumblr.com/d2ee199c2ab9ddd78a614afbf5ba33d5/tumblr_n5tuyw0G8S1tah9pwo1_r1_640.gif'
         ];
 
+        // Function to change the background image
         function changeBackground() {
             document.body.style.backgroundImage = `url('${backgrounds[backgroundIndex]}')`;
             backgroundIndex = (backgroundIndex + 1) % backgrounds.length;
         }
 
-        // Set the interval time (in milliseconds)
+        // Set the interval time (in milliseconds) to change background every 10 seconds
         const intervalTime = 10000; // 10 seconds
         setInterval(changeBackground, intervalTime);
-        
+
         // Initial background
         changeBackground();
     </script>
