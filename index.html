@@ -11,8 +11,6 @@
             margin: 0;
             padding: 20px;
             display: flex;
-            flex-direction: column;
-            height: 100vh;
             justify-content: center;
             align-items: center;
             overflow: hidden;
@@ -32,7 +30,14 @@
             z-index: -1;
         }
 
-        img {
+        .background-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .background {
             max-width: 80%;
             max-height: 100%;
             border: 4px solid #ffffff;
@@ -153,14 +158,15 @@
 
     <div class="background-container">
         <!-- Backgrounds -->
-        <div class="background" style="background-image: url('https://i.imgur.com/0IWb7dn.gif');"></div>
-        <div class="background" style="background-image: url('https://wallpaperaccess.com/full/775121.gif');"></div>
+        <div class="background"
+            style="background-image: url('https://i.imgur.com/0IWb7dn.gif');"></div>
+        <div class="background"
+            style="background-image: url('https://wallpaperaccess.com/full/775121.gif');"></div>
         <div class="background"
             style="background-image: url('https://i.pinimg.com/originals/5b/a5/23/5ba523a4a02534cdf9acb37a3732c5f8.gif');"></div>
-        <div class="background" style="background-image: url('https://wallpapercave.com/wp/wp9637442.gif');"></div>
+        <div class="background"
+            style="background-image: url('https://wallpapercave.com/wp/wp9637442.gif');"></div>
     </div>
-
-    <img src="https://i.pinimg.com/originals/8e/8f/1d/8e8f1d842967eb5e91520a74246b358f.gif" alt="Start Page Image">
 
     <div class="links">
         <div class="group">
