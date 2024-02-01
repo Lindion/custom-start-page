@@ -22,11 +22,11 @@
 
         body::before {
             content: "";
-            position: absolute; /* Position the pseudo-element absolutely */
+            position: fixed; /* Position the pseudo-element fixed */
             top: 0;
             left: 0;
-            width: 100vw; /* Adjust the width to cover the entire viewport */
-            height: 100vh; /* Adjust the height to cover the entire viewport */
+            width: 100%; /* Adjust the width to cover the entire viewport */
+            height: 100%; /* Adjust the height to cover the entire viewport */
             z-index: -1; /* Place the pseudo-element behind the content */
             background: url('https://i.imgur.com/0IWb7dn.gif') no-repeat fixed center; /* Same background image as body */
             background-size: cover; /* Cover the entire viewport */
