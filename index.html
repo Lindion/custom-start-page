@@ -78,7 +78,7 @@
             document.querySelector('.toggle-button-image').classList.toggle('active', imageEnabled);
         }
 
-        // Change background every specified seconds
+        // Change background with slide-in effect
         let backgroundIndex = 0;
         const backgrounds = [
             'https://i.imgur.com/0IWb7dn.gif',
@@ -88,8 +88,14 @@
         ];
 
         function changeBackground() {
-            document.body.style.backgroundImage = `url('${backgrounds[backgroundIndex]}')`;
-            backgroundIndex = (backgroundIndex + 1) % backgrounds.length;
+            const newBackground = backgrounds[backgroundIndex];
+            document.body.style.animation = 'slide-out 0.5s forwards';
+
+            setTimeout(() => {
+                document.body.style.backgroundImage = `url('${newBackground}')`;
+                document.body.style.animation = 'slide-in 0.5s forwards';
+                backgroundIndex = (backgroundIndex + 1) % backgrounds.length;
+            }, 500);
         }
 
         // Set the interval time (in milliseconds)
