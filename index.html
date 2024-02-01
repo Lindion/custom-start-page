@@ -10,9 +10,8 @@
             margin: 0;
             padding: 20px; /* Add padding to create space around the content */
             display: flex;
-            flex-direction: column; /* Stack elements vertically */
             height: 100vh;
-            justify-content: center; /* Center content horizontally */
+            justify-content: space-between; /* Adjusted to space-between */
             align-items: center; /* Center content vertically */
             overflow: hidden; /* Hide the scroll bar */
             font-family: 'VT323', monospace; /* Set the custom pixel font */
@@ -37,20 +36,20 @@
             max-height: 100%;
             border: 4px solid #ffffff; /* Add a 2px white border around the image */
             box-sizing: border-box;
-            margin-left: 80px; /* Adjust the spacing between the image and links */
+            margin-right: 80px; /* Adjust the spacing between the image and links */
         }
 
         .links {
             display: flex;
-            flex-direction: row; /* Arrange groups horizontally */
-            justify-content: space-around; /* Add space around the groups */
-            align-items: stretch; /* Align items to stretch vertically */
+            flex-direction: column; /* Stack elements vertically */
+            justify-content: space-around; /* Space links evenly */
+            align-items: flex-start; /* Align items to the left */
+            height: 100%; /* Occupy full height */
         }
 
         .group {
             text-align: center; /* Center-align the group */
             padding: 40px; /* Add padding for each group */
-            height: 100%; /* Set a fixed height for each group */
             display: flex;
             flex-direction: column; /* Arrange items vertically in each group */
         }
@@ -90,7 +89,7 @@
 </head>
 <body>
     <div class="overlay" id="blurOverlay"></div> <!-- Add overlay div -->
-    
+
     <div class="links">
         <div class="group">
             <div class="group-title">4chan</div>
