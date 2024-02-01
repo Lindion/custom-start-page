@@ -85,6 +85,33 @@
             align-items: center;
             justify-content: center;
         }
+        
+        /* New buttons for toggling groups and image */
+        .toggle-button-group, .toggle-button-image {
+            position: absolute;
+            top: 20px;
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            width: 40px; /* Set width and height to make it round */
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .toggle-button-group {
+            left: 50%; /* Move to the middle */
+            transform: translateX(-100px); /* Center horizontally, adjust as needed */
+        }
+
+        .toggle-button-image {
+            left: 50%; /* Move to the middle */
+            transform: translateX(60px); /* Center horizontally, adjust as needed */
+        }
     </style>
 </head>
 <body>
@@ -106,7 +133,7 @@
             <a href="https://twitter.com" target="_blank">Twitter</a>
             <a href="https://www.youtube.com" target="_blank">YouTube</a>
             <a href="https://www.2chan.net/" target="_blank">2Chan</a>
-            <a href="https://www.twitch.tv/" target="_blank">Twitch</a>
+            <a href="https://www.twitch.tv/" target="_balnk">Twitch</a>
             <a href="https://soundcloud.com/user-326590673" target="_blank">Soundcloud</a>
         </div>
         
@@ -121,16 +148,32 @@
 
     <img src="https://i.pinimg.com/originals/8e/8f/1d/8e8f1d842967eb5e91520a74246b358f.gif" alt="Start Page Image">
     
+    <!-- Toggle buttons for blur, groups, and image -->
     <button class="toggle-button" onclick="toggleBlur()">B</button>
+    <button class="toggle-button-group" onclick="toggleGroups()">G</button>
+    <button class="toggle-button-image" onclick="toggleImage()">P</button>
 
     <script>
         let blurEnabled = true; // Track whether blur is currently enabled
+        let groupsVisible = true; // Track whether groups are currently visible
+        let imageVisible = true; // Track whether image is currently visible
 
         function toggleBlur() {
             const overlay = document.getElementById('blurOverlay');
-            // Toggle the backdrop-filter property
             overlay.style.backdropFilter = blurEnabled ? 'blur(0)' : 'blur(10px)';
             blurEnabled = !blurEnabled; // Update the status
+        }
+
+        function toggleGroups() {
+            const groups = document.querySelector('.links');
+            groups.style.display = groupsVisible ? 'none' : 'flex';
+            groupsVisible = !groupsVisible; // Update the status
+        }
+
+        function toggleImage() {
+            const image = document.querySelector('img');
+            image.style.display = imageVisible ? 'none' : 'block';
+            imageVisible = !imageVisible; // Update the status
         }
     </script>
 </body>
