@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +18,7 @@
             font-family: 'VT323', monospace;
             position: relative;
             background-size: cover;
+            transition: background-position-x 1s linear;
         }
 
         .overlay {
@@ -66,9 +68,15 @@
             margin-bottom: 10px;
         }
 
-        .toggle-button, .toggle-button-group, .toggle-button-image {
+        .toggle-buttons {
+            display: flex;
+            justify-content: center;
             position: absolute;
             top: 20px;
+            width: 100%;
+        }
+
+        .toggle-button {
             width: 40px;
             height: 40px;
             border: 2px solid #ffffff;
@@ -81,21 +89,41 @@
             background-color: rgba(0, 0, 0, 0.3);
             color: #ffffff;
             font-size: 24px;
+            margin: 0 10px;
+            transition: background-color 0.5s ease;
         }
 
-        .toggle-button {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .toggle-button-group {
-            left: 50%;
-            transform: translateX(-100px);
+        .toggle-button.active {
+            background-color: #ffffff;
+            color: #000000;
         }
 
-        .toggle-button-image {
-            left: 50%;
-            transform: translateX(60px);
+        .toggle-button.pulsate {
+            animation: pulsate 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulsate {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes scrollBackgrounds {
+            0% {
+                background-position-x: 0%;
+            }
+
+            100% {
+                background-position-x: 100%;
+            }
         }
     </style>
     <script>
@@ -104,11 +132,37 @@
         new Image().src = 'https://wallpaperaccess.com/full/775121.gif';
         new Image().src = 'https://i.pinimg.com/originals/5b/a5/23/5ba523a4a02534cdf9acb37a3732c5f8.gif';
         new Image().src = 'https://wallpapercave.com/wp/wp9637442.gif';
+
+        // Array of background images
+        const backgrounds = [
+            'https://i.imgur.com/0IWb7dn.gif',
+            'https://wallpaperaccess.com/full/775121.gif',
+            'https://i.pinimg.com/originals/5b/a5/23/5ba523a4a02534cdf9acb37a3732c5f8.gif',
+            'https://wallpapercave.com/wp/wp9637442.gif'
+        ];
+
+        // Index of the current background
+        let backgroundIndex = Math.floor(Math.random() * backgrounds.length);
+
+        // Function to set initial background
+        function setInitialBackground() {
+            document.body.style.backgroundImage = `url('${backgrounds[backgroundIndex]}')`;
+        }
+
+        // Set initial background on page load
+        window.onload = setInitialBackground;
+
+        // Function to update the background index
+        function updateBackground() {
+            backgroundIndex = (backgroundIndex + 1) % backgrounds.length;
+            document.body.style.backgroundImage = `url('${backgrounds[backgroundIndex]}')`;
+        }
     </script>
 </head>
+
 <body>
     <div class="overlay" id="blurOverlay"></div>
-    
+
     <div class="links">
         <div class="group">
             <div class="group-title">4chan</div>
@@ -136,61 +190,32 @@
         </div>
     </div>
 
-    <img src="https://i.pinimg.com/originals/8e/8f/1d/8e8f1d842967eb5e91520a74246b358f.gif" alt="Start Page Image">
-
-    <button class="toggle-button" onclick="toggleBlur()">B</button>
-    <button class="toggle-button-group" onclick="toggleGroups()">G</button>
-    <button class="toggle-button-image" onclick="toggleImage()">P</button>
+    <div class="toggle-buttons">
+        <button class="toggle-button" onclick="toggleBlur()">B</button>
+        <button class="toggle-button pulsate" onclick="updateBackground()">Next</button>
+        <button class="toggle-button" onclick="toggleImage()">P</button>
+    </div>
 
     <script>
         let blurEnabled = true;
-        let groupsEnabled = true;
         let imageEnabled = true;
 
+        // Function to toggle blur effect
         function toggleBlur() {
             const overlay = document.getElementById('blurOverlay');
-            overlay.style.backdropFilter = blurEnabled ? 'blur(0)' : 'blur(10px)';
             blurEnabled = !blurEnabled;
-
+            overlay.style.backdropFilter = blurEnabled ? 'blur(10px)' : 'blur(0)';
             document.querySelector('.toggle-button').classList.toggle('active', blurEnabled);
         }
 
-        function toggleGroups() {
-            const links = document.querySelector('.links');
-            links.style.display = groupsEnabled ? 'none' : 'flex';
-            groupsEnabled = !groupsEnabled;
-
-            document.querySelector('.toggle-button-group').classList.toggle('active', groupsEnabled);
-        }
-
+        // Function to toggle visibility of the image
         function toggleImage() {
-            const image = document.querySelector('img');
-            image.style.display = imageEnabled ? 'none' : 'block';
+            const image = document.querySelector('.background-container');
             imageEnabled = !imageEnabled;
-
-            document.querySelector('.toggle-button-image').classList.toggle('active', imageEnabled);
+            image.style.display = imageEnabled ? 'flex' : 'none';
+            document.querySelector('.toggle-button').classList.toggle('active', imageEnabled);
         }
-
-        // Change background every specified seconds
-        let backgroundIndex = 0;
-        const backgrounds = [
-            'https://i.imgur.com/0IWb7dn.gif',
-            'https://wallpaperaccess.com/full/775121.gif',
-            'https://i.pinimg.com/originals/5b/a5/23/5ba523a4a02534cdf9acb37a3732c5f8.gif',
-            'https://wallpapercave.com/wp/wp9637442.gif'
-        ];
-
-        function changeBackground() {
-            document.body.style.backgroundImage = `url('${backgrounds[backgroundIndex]}')`;
-            backgroundIndex = (backgroundIndex + 1) % backgrounds.length;
-        }
-
-        // Set the interval time (in milliseconds)
-        const intervalTime = 10000; // 10 seconds
-        setInterval(changeBackground, intervalTime);
-        
-        // Initial background
-        changeBackground();
     </script>
 </body>
+
 </html>
