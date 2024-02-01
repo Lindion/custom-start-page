@@ -68,11 +68,15 @@
             margin-bottom: 10px;
         }
 
-        .toggle-button,
-        .toggle-button-group,
-        .toggle-button-image {
+        .toggle-buttons {
+            display: flex;
+            justify-content: center;
             position: absolute;
             top: 20px;
+            width: 100%;
+        }
+
+        .toggle-button {
             width: 40px;
             height: 40px;
             border: 2px solid #ffffff;
@@ -85,21 +89,12 @@
             background-color: rgba(0, 0, 0, 0.3);
             color: #ffffff;
             font-size: 24px;
+            margin: 0 10px;
         }
 
-        .toggle-button {
-            left: 50%;
-            transform: translateX(-150px);
-        }
-
-        .toggle-button-group {
-            left: 50%;
-            transform: translateX(-100px);
-        }
-
-        .toggle-button-image {
-            left: 50%;
-            transform: translateX(-50px);
+        .toggle-button.active {
+            background-color: #ffffff;
+            color: #000000;
         }
     </style>
     <script>
@@ -124,12 +119,12 @@
         function updateBackground() {
             document.body.style.backgroundImage = `url('${backgrounds[backgroundIndex]}')`;
             backgroundIndex = (backgroundIndex + 1) % backgrounds.length;
-            setTimeout(updateBackground, 10000); // 10 seconds delay
         }
 
         // Set initial background on page load
         window.onload = function () {
             updateBackground();
+            setInterval(updateBackground, 10000); // 10 seconds interval
         };
     </script>
 </head>
@@ -167,9 +162,11 @@
     <img src="https://i.pinimg.com/originals/8e/8f/1d/8e8f1d842967eb5e91520a74246b358f.gif" alt="Start Page Image">
 
     <!-- Buttons for toggling features -->
-    <button class="toggle-button" onclick="toggleBlur()">B</button>
-    <button class="toggle-button-group" onclick="toggleGroups()">G</button>
-    <button class="toggle-button-image" onclick="toggleImage()">P</button>
+    <div class="toggle-buttons">
+        <button class="toggle-button" onclick="toggleBlur()">B</button>
+        <button class="toggle-button" onclick="toggleGroups()">G</button>
+        <button class="toggle-button" onclick="toggleImage()">P</button>
+    </div>
 
     <script>
         // Variables to track the state of features
@@ -192,7 +189,7 @@
             links.style.display = groupsEnabled ? 'none' : 'flex';
             groupsEnabled = !groupsEnabled;
 
-            document.querySelector('.toggle-button-group').classList.toggle('active', groupsEnabled);
+            document.querySelector('.toggle-button').classList.toggle('active', groupsEnabled);
         }
 
         // Function to toggle visibility of the image
@@ -201,7 +198,7 @@
             image.style.display = imageEnabled ? 'none' : 'block';
             imageEnabled = !imageEnabled;
 
-            document.querySelector('.toggle-button-image').classList.toggle('active', imageEnabled);
+            document.querySelector('.toggle-button').classList.toggle('active', imageEnabled);
         }
     </script>
 </body>
