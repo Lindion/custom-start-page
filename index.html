@@ -203,7 +203,7 @@
             overlay.style.backdropFilter = blurEnabled ? 'blur(0)' : 'blur(10px)';
             blurEnabled = !blurEnabled;
 
-            document.querySelector('.toggle-button').classList.toggle('active', blurEnabled);
+            document.querySelector('.toggle-button').classList.toggle('active', !blurEnabled);
         }
 
         // Function to toggle visibility of link groups
@@ -212,7 +212,7 @@
             links.style.display = groupsEnabled ? 'none' : 'flex';
             groupsEnabled = !groupsEnabled;
 
-            document.querySelector('.toggle-button-group').classList.toggle('active', groupsEnabled);
+            document.querySelector('.toggle-button-group').classList.toggle('active', !groupsEnabled);
         }
 
         // Function to toggle visibility of start page image
@@ -221,7 +221,7 @@
             image.style.display = imageEnabled ? 'none' : 'block';
             imageEnabled = !imageEnabled;
 
-            document.querySelector('.toggle-button-image').classList.toggle('active', imageEnabled);
+            document.querySelector('.toggle-button-image').classList.toggle('active', !imageEnabled);
         }
 
         // Change background every specified seconds
