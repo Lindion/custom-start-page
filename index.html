@@ -17,6 +17,7 @@
             font-family: 'VT323', monospace;
             position: relative;
             background-size: cover;
+            transition: background-image 1s ease-in-out; /* Slide-in effect */
         }
 
         .overlay {
@@ -171,7 +172,7 @@
             document.querySelector('.toggle-button-image').classList.toggle('active', imageEnabled);
         }
 
-        // Change background every specified seconds
+        // Change background with slide-in effect
         let backgroundIndex = 0;
         const backgrounds = [
             'https://i.imgur.com/0IWb7dn.gif',
