@@ -12,7 +12,7 @@
             display: flex;
             height: 100vh;
             justify-content: center; /* Center content horizontally */
-            align-items: center; /* Center content vertically */
+            align-items: center;
             overflow: hidden; /* Hide the scroll bar */
             font-family: 'VT323', monospace; /* Set the custom pixel font */
             background: url('https://i.imgur.com/0IWb7dn.gif') no-repeat fixed center; /* Add background image */
@@ -36,19 +36,20 @@
             max-height: 100%;
             border: 4px solid #ffffff; /* Add a 2px white border around the image */
             box-sizing: border-box;
-            margin: 0 20px; /* Add margin for spacing between groups and image */
+            margin-right: 80px; /* Adjust the spacing between the image and links */
         }
 
         .links {
             display: flex;
-            flex-direction: row; /* Arrange groups and image side by side */
-            justify-content: space-around; /* Add space around the groups and image */
+            flex-direction: row; /* Arrange groups horizontally */
+            justify-content: space-around; /* Add space around the groups */
             align-items: stretch; /* Align items to stretch vertically */
         }
 
         .group {
             text-align: center; /* Center-align the group */
             padding: 40px; /* Add padding for each group */
+            height: 100%; /* Set a fixed height for each group */
             display: flex;
             flex-direction: column; /* Arrange items vertically in each group */
         }
@@ -69,9 +70,8 @@
 
         .toggle-button {
             position: absolute;
-            top: 20px; /* Adjust the distance from the top */
-            left: 50%;
-            transform: translateX(-50%); /* Center the button horizontally */
+            top: 20px;
+            right: 20px;
             background-color: #ffffff;
             color: #000000;
             border: none;
@@ -88,7 +88,7 @@
 </head>
 <body>
     <div class="overlay" id="blurOverlay"></div> <!-- Add overlay div -->
-
+    
     <div class="links">
         <div class="group">
             <div class="group-title">4chan</div>
@@ -100,8 +100,6 @@
             <a href="https://boards.4chan.org/int/" target="_blank">/int/</a>
         </div>
         
-        <img src="https://i.pinimg.com/originals/8e/8f/1d/8e8f1d842967eb5e91520a74246b358f.gif" alt="Start Page Image">
-        
         <div class="group">
             <div class="group-title">Media</div>
             <a href="https://twitter.com" target="_blank">Twitter</a>
@@ -110,8 +108,18 @@
             <a href="https://www.twitch.tv/" target="_blank">Twitch</a>
             <a href="https://soundcloud.com/user-326590673" target="_blank">Soundcloud</a>
         </div>
+        
+        <div class="group">
+            <div class="group-title">Else</div>
+            <a href="https://myfigurecollection.net/" target="_blank">MFG</a>
+            <a href="https://github.com/" target="_blank">Github</a>
+            <a href="https://chat.openai.com/" target="_blank">ChatGPT</a>
+            <a href="https://catbox.moe/" target="_blank">Catbox</a>
+        </div>
     </div>
 
+    <img src="https://i.pinimg.com/originals/8e/8f/1d/8e8f1d842967eb5e91520a74246b358f.gif" alt="Start Page Image">
+    
     <button class="toggle-button" onclick="toggleBlur()">B</button>
 
     <script>
