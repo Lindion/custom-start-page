@@ -20,13 +20,6 @@
             animation: slideBackground 15s linear infinite; /* Adjust the duration as needed */
         }
 
-        @keyframes slideBackground {
-            0%, 100% { background-image: url('https://i.imgur.com/0IWb7dn.gif'); }
-            0.67%, 20% { background-image: url('https://wallpaperaccess.com/full/775121.gif'); }
-            26.67%, 40% { background-image: url('https://i.pinimg.com/originals/5b/a5/23/5ba523a4a02534cdf9acb37a3732c5f8.gif'); }
-            53.33%, 60% { background-image: url('https://wallpapercave.com/wp/wp9637442.gif'); }
-        }
-
         .overlay {
             position: absolute;
             top: 0;
@@ -107,11 +100,21 @@
         }
     </style>
     <script>
-        // Preload background images
-        new Image().src = 'https://i.imgur.com/0IWb7dn.gif';
-        new Image().src = 'https://wallpaperaccess.com/full/775121.gif';
-        new Image().src = 'https://i.pinimg.com/originals/5b/a5/23/5ba523a4a02534cdf9acb37a3732c5f8.gif';
-        new Image().src = 'https://wallpapercave.com/wp/wp9637442.gif';
+        const backgrounds = [
+            'https://i.imgur.com/0IWb7dn.gif',
+            'https://wallpaperaccess.com/full/775121.gif',
+            'https://i.pinimg.com/originals/5b/a5/23/5ba523a4a02534cdf9acb37a3732c5f8.gif',
+            'https://wallpapercave.com/wp/wp9637442.gif'
+        ];
+
+        let currentBackgroundIndex = 0;
+
+        function changeBackground() {
+            document.body.style.backgroundImage = `url('${backgrounds[currentBackgroundIndex]}')`;
+            currentBackgroundIndex = (currentBackgroundIndex + 1) % backgrounds.length;
+        }
+
+        setInterval(changeBackground, 10000); // Change background every 10 seconds
     </script>
 </head>
 <body>
