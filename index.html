@@ -90,8 +90,13 @@
 
         function changeBackground() {
             const newBackground = backgrounds[backgroundIndex];
-            document.body.style.backgroundImage = `url('${newBackground}')`;
-            backgroundIndex = (backgroundIndex + 1) % backgrounds.length;
+            document.body.style.animation = 'slide-out 0.5s forwards';
+
+            setTimeout(() => {
+                document.body.style.backgroundImage = `url('${newBackground}')`;
+                document.body.style.animation = 'slide-in 0.5s forwards';
+                backgroundIndex = (backgroundIndex + 1) % backgrounds.length;
+            }, 500);
         }
 
         // Set the interval time (in milliseconds)
