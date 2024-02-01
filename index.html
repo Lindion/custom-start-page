@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Start Page</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&display=swap">
     <script>
         // Preload background images
         new Image().src = 'https://i.imgur.com/0IWb7dn.gif';
@@ -89,13 +90,8 @@
 
         function changeBackground() {
             const newBackground = backgrounds[backgroundIndex];
-            document.body.style.animation = 'slide-out 0.5s forwards';
-
-            setTimeout(() => {
-                document.body.style.backgroundImage = `url('${newBackground}')`;
-                document.body.style.animation = 'slide-in 0.5s forwards';
-                backgroundIndex = (backgroundIndex + 1) % backgrounds.length;
-            }, 500);
+            document.body.style.backgroundImage = `url('${newBackground}')`;
+            backgroundIndex = (backgroundIndex + 1) % backgrounds.length;
         }
 
         // Set the interval time (in milliseconds)
