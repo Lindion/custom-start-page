@@ -10,9 +10,10 @@
             margin: 0;
             padding: 20px; /* Add padding to create space around the content */
             display: flex;
+            flex-direction: column; /* Stack elements vertically */
             height: 100vh;
             justify-content: center; /* Center content horizontally */
-            align-items: center;
+            align-items: center; /* Center content vertically */
             overflow: hidden; /* Hide the scroll bar */
             font-family: 'VT323', monospace; /* Set the custom pixel font */
             background: url('https://i.imgur.com/0IWb7dn.gif') no-repeat fixed center; /* Add background image */
@@ -70,8 +71,9 @@
 
         .toggle-button {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center the button */
             background-color: #ffffff;
             color: #000000;
             border: none;
