@@ -17,6 +17,19 @@
             font-family: 'VT323', monospace; /* Set the custom pixel font */
             background: url('https://i.imgur.com/0IWb7dn.gif') no-repeat fixed center; /* Add background image */
             background-size: cover; /* Cover the entire viewport */
+            position: relative; /* Set position to relative for proper stacking */
+        }
+
+        body::before {
+            content: "";
+            position: absolute; /* Position the pseudo-element absolutely */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Place the pseudo-element behind the content */
+            background: url('https://i.imgur.com/0IWb7dn.gif') no-repeat fixed center; /* Same background image as body */
+            background-size: cover; /* Cover the entire viewport */
             -webkit-filter: blur(5px); /* Add a blur effect to the background for webkit browsers */
             filter: blur(5px); /* Add a blur effect to the background */
         }
