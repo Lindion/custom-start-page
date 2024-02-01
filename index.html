@@ -17,14 +17,7 @@
             font-family: 'VT323', monospace;
             position: relative;
             background-size: cover;
-            animation: slideBackground 15s linear infinite; /* Adjust the duration as needed */
-        }
-
-        @keyframes slideBackground {
-            0%, 100% { background-image: url('https://i.imgur.com/0IWb7dn.gif'); }
-            25% { background-image: url('https://wallpaperaccess.com/full/775121.gif'); }
-            50% { background-image: url('https://i.pinimg.com/originals/5b/a5/23/5ba523a4a02534cdf9acb37a3732c5f8.gif'); }
-            75% { background-image: url('https://wallpapercave.com/wp/wp9637442.gif'); }
+            background-image: url('https://i.imgur.com/0IWb7dn.gif');
         }
 
         .overlay {
@@ -35,14 +28,6 @@
             height: 100%;
             backdrop-filter: blur(10px);
             z-index: -1;
-            opacity: 1; /* Initial opacity */
-            animation: fadeInOut 15s linear infinite; /* Sync with slideBackground duration */
-        }
-
-        @keyframes fadeInOut {
-            0%, 100% { opacity: 1; }
-            25%, 75% { opacity: 0; }
-            50% { opacity: 1; }
         }
 
         img {
@@ -94,50 +79,26 @@
             align-items: center;
             justify-content: center;
             font-family: 'VT323', monospace;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: #ffffff;
+            font-size: 24px;
         }
 
         .toggle-button {
             left: 50%;
             transform: translateX(-50%);
-            background-color: rgba(0, 0, 0, 0.3);
-            color: #ffffff;
-            font-size: 24px;
         }
         
         .toggle-button-group {
             left: 50%;
             transform: translateX(-100px);
-            background-color: rgba(0, 0, 0, 0.3);
-            color: #ffffff;
-            font-size: 24px;
         }
 
         .toggle-button-image {
             left: 50%;
             transform: translateX(60px);
-            background-color: rgba(0, 0, 0, 0.3);
-            color: #ffffff;
-            font-size: 24px;
         }
     </style>
-    <script>
-        // Preload images
-        function preloadImages() {
-            const imageUrls = [
-                'https://i.imgur.com/0IWb7dn.gif',
-                'https://wallpaperaccess.com/full/775121.gif',
-                'https://i.pinimg.com/originals/5b/a5/23/5ba523a4a02534cdf9acb37a3732c5f8.gif',
-                'https://wallpapercave.com/wp/wp9637442.gif'
-            ];
-
-            imageUrls.forEach(url => {
-                const img = new Image();
-                img.src = url;
-            });
-        }
-
-        window.addEventListener('DOMContentLoaded', preloadImages);
-    </script>
 </head>
 <body>
     <div class="overlay" id="blurOverlay"></div>
