@@ -59,7 +59,7 @@
             color: #ffffff;
             text-decoration: none;
             margin-bottom: 10px;
-            font-size: 24px;
+            font-size: 20px; /* Adjusted font size */
         }
 
         .group-title {
@@ -87,13 +87,13 @@
             transform: translateX(-50%);
             background-color: rgba(0, 0, 0, 0.3);
             color: #ffffff;
-            font-size: 32px; /* Increased font size */
+            font-size: 24px; /* Adjusted font size */
         }
         
         .toggle-button-group, .toggle-button-image {
             background-color: rgba(0, 0, 0, 0.3);
             color: #ffffff;
-            font-size: 32px; /* Increased font size */
+            font-size: 24px; /* Adjusted font size */
         }
 
         .toggle-button-group {
@@ -160,7 +160,6 @@
             overlay.style.backdropFilter = blurEnabled ? 'blur(0)' : 'blur(10px)';
             blurEnabled = !blurEnabled;
 
-            // Toggle active class for the button
             document.querySelector('.toggle-button').classList.toggle('active', blurEnabled);
         }
 
@@ -169,7 +168,6 @@
             links.style.display = groupsEnabled ? 'none' : 'flex';
             groupsEnabled = !groupsEnabled;
 
-            // Toggle active class for the button
             document.querySelector('.toggle-button-group').classList.toggle('active', groupsEnabled);
         }
 
@@ -178,7 +176,6 @@
             image.style.display = imageEnabled ? 'none' : 'block';
             imageEnabled = !imageEnabled;
 
-            // Toggle active class for the button
             document.querySelector('.toggle-button-image').classList.toggle('active', imageEnabled);
         }
     </script>
