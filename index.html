@@ -15,42 +15,14 @@
             align-items: center;
             background-color: #000000;
             font-family: 'VT323', monospace; /* Set the custom pixel font */
-            overflow: hidden; /* Remove the scroll bar */
         }
 
         img {
             max-width: 80%; /* Adjust the maximum image width as needed */
             max-height: 100%;
-            border: none; /* Remove the original border */
+            border: 4px solid #ffffff; /* Add a 2px white border around the image */
             box-sizing: border-box;
             margin-left: 80px; /* Adjust the spacing between the image and links */
-            position: relative;
-        }
-
-        .snake-border {
-            position: absolute;
-            width: calc(100% + 8px); /* Adjust to include the border thickness */
-            height: calc(100% + 8px); /* Adjust to include the border thickness */
-            border: 4px solid #ffffff; /* Set the color and thickness of the border */
-            animation: moveSnake 10s linear infinite; /* Apply the movement animation */
-        }
-
-        @keyframes moveSnake {
-            0% {
-                transform: translateX(0) translateY(0);
-            }
-            25% {
-                transform: translateX(100%) translateY(0);
-            }
-            50% {
-                transform: translateX(100%) translateY(100%);
-            }
-            75% {
-                transform: translateX(0) translateY(100%);
-            }
-            100% {
-                transform: translateX(0) translateY(0);
-            }
         }
 
         .links {
@@ -112,6 +84,5 @@
     </div>
 
     <img src="https://i.pinimg.com/originals/8e/8f/1d/8e8f1d842967eb5e91520a74246b358f.gif" alt="Start Page Image">
-    <div class="snake-border"></div>
 </body>
 </html>
