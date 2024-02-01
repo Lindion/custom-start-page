@@ -134,6 +134,11 @@
             backgroundIndex = (backgroundIndex + 1) % backgrounds.length;
             updateBackground();
         }
+
+        // Set initial background on page load
+        window.onload = function () {
+            updateBackground();
+        };
     </script>
 </head>
 
@@ -178,10 +183,12 @@
     <button class="toggle-button-background" onclick="nextBackground()">1</button>
 
     <script>
+        // Variables to track the state of features
         let blurEnabled = true;
         let groupsEnabled = true;
         let imageEnabled = true;
 
+        // Function to toggle blur effect
         function toggleBlur() {
             const overlay = document.getElementById('blurOverlay');
             overlay.style.backdropFilter = blurEnabled ? 'blur(0)' : 'blur(10px)';
@@ -190,6 +197,7 @@
             document.querySelector('.toggle-button').classList.toggle('active', blurEnabled);
         }
 
+        // Function to toggle visibility of groups
         function toggleGroups() {
             const links = document.querySelector('.links');
             links.style.display = groupsEnabled ? 'none' : 'flex';
@@ -198,6 +206,7 @@
             document.querySelector('.toggle-button-group').classList.toggle('active', groupsEnabled);
         }
 
+        // Function to toggle visibility of the image
         function toggleImage() {
             const image = document.querySelector('img');
             image.style.display = imageEnabled ? 'none' : 'block';
