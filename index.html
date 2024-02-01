@@ -18,6 +18,7 @@
             font-family: 'VT323', monospace;
             position: relative;
             background-size: cover;
+            transition: background-image 1s ease-in-out;
         }
 
         .overlay {
@@ -69,8 +70,7 @@
 
         .toggle-button,
         .toggle-button-group,
-        .toggle-button-image,
-        .toggle-button-background {
+        .toggle-button-image {
             position: absolute;
             top: 20px;
             width: 40px;
@@ -101,11 +101,6 @@
             left: 50%;
             transform: translateX(-50px);
         }
-
-        .toggle-button-background {
-            left: 50%;
-            transform: translateX(0);
-        }
     </style>
     <script>
         // Preload background images
@@ -122,17 +117,14 @@
             'https://wallpapercave.com/wp/wp9637442.gif'
         ];
 
-        // Randomly choose a background on page load
-        let backgroundIndex = Math.floor(Math.random() * backgrounds.length);
-        updateBackground();
+        // Index of the current background
+        let backgroundIndex = 0;
 
+        // Function to update the background image with a slide-in animation
         function updateBackground() {
             document.body.style.backgroundImage = `url('${backgrounds[backgroundIndex]}')`;
-        }
-
-        function nextBackground() {
             backgroundIndex = (backgroundIndex + 1) % backgrounds.length;
-            updateBackground();
+            setTimeout(updateBackground, 10000); // 10 seconds delay
         }
 
         // Set initial background on page load
@@ -178,9 +170,6 @@
     <button class="toggle-button" onclick="toggleBlur()">B</button>
     <button class="toggle-button-group" onclick="toggleGroups()">G</button>
     <button class="toggle-button-image" onclick="toggleImage()">P</button>
-
-    <!-- Button for changing backgrounds -->
-    <button class="toggle-button-background" onclick="nextBackground()">1</button>
 
     <script>
         // Variables to track the state of features
