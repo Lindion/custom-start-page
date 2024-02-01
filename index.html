@@ -183,23 +183,6 @@
 
             document.querySelector('.toggle-button-image').classList.toggle('active', imageEnabled);
         }
-
-        // JavaScript to preload images
-        function preloadImages() {
-            const images = [
-                'https://wallpaperaccess.com/full/775121.gif',
-                'https://i.pinimg.com/originals/5b/a5/23/5ba523a4a02534cdf9acb37a3732c5f8.gif',
-                'https://wallpapercave.com/wp/wp9637442.gif'
-            ];
-
-            for (const imageUrl of images) {
-                const img = new Image();
-                img.src = imageUrl;
-            }
-        }
-
-        // Preload images when the window loads
-        window.onload = preloadImages;
     </script>
 </body>
 </html>
