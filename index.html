@@ -80,6 +80,11 @@
             align-items: center;
             justify-content: center;
             font-family: 'VT323', monospace;
+            transition: transform 0.3s ease; /* Add transition for scaling effect */
+        }
+
+        .toggle-button:hover, .toggle-button-group:hover, .toggle-button-image:hover {
+            transform: scale(1.1); /* Scale up on hover */
         }
 
         .toggle-button {
