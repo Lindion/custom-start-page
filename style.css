@@ -43,6 +43,7 @@ img {
     height: 100%;
     display: flex;
     flex-direction: column;
+    font-family: 'VT323', monospace; /* Add the font-family here */
 }
 
 .group a {
