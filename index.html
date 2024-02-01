@@ -32,6 +32,8 @@
             width: 100%;
             height: 100%;
             backdrop-filter: blur(10px);
+            border: 2px solid #ffffff; /* White border around the black box */
+            box-sizing: border-box; /* Ensure border is included in the box size */
             z-index: -1;
         }
 
@@ -44,7 +46,7 @@
             margin: 0 80px;
         }
 
-        /* Container for link groups with background overlay */
+        /* Container for link groups with black box overlay */
         .links {
             display: flex;
             flex-direction: row;
@@ -62,6 +64,8 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.3);
+            border: 2px solid #ffffff; /* White border around the black box */
+            box-sizing: border-box; /* Ensure border is included in the box size */
             z-index: -1;
         }
 
@@ -72,8 +76,6 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            border: 2px solid #ffffff; /* White border around the group box */
-            box-sizing: border-box; /* Ensure border is included in the box size */
         }
 
         /* Styling for links within each group */
