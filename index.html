@@ -80,11 +80,11 @@
             align-items: center;
             justify-content: center;
             font-family: 'VT323', monospace;
-            transition: transform 0.3s ease; /* Add transition for scaling effect */
+            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Add transition for scaling effect */
         }
 
         .toggle-button:hover, .toggle-button-group:hover, .toggle-button-image:hover {
-            transform: scale(1.1); /* Scale up on hover */
+            transform: scale(1);
         }
 
         .toggle-button {
@@ -111,10 +111,14 @@
             transform: translateX(60px);
         }
 
-        /* Added style for active buttons */
-        .active {
-            background-color: rgba(0, 0, 0, 0.3);
-            color: #ffffff;
+        .toggle-button.active, .toggle-button-group.active, .toggle-button-image.active {
+            background-color: rgba(255, 255, 255, 0.5);
+            color: #000000;
+        }
+
+        .toggle-button.active:hover, .toggle-button-group.active:hover, .toggle-button-image.active:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+            color: #000000;
         }
     </style>
 </head>
@@ -131,7 +135,6 @@
             <a href="https://boards.4chan.org/r9k/" target="_blank">/r9k/</a>
             <a href="https://boards.4chan.org/int/" target="_blank">/int/</a>
         </div>
-        
         <div class="group">
             <div class="group-title">Media</div>
             <a href="https://twitter.com" target="_blank">Twitter</a>
@@ -140,7 +143,6 @@
             <a href="https://www.twitch.tv/" target="_balnk">Twitch</a>
             <a href="https://soundcloud.com/user-326590673" target="_blank">Soundcloud</a>
         </div>
-        
         <div class="group">
             <div class="group-title">Else</div>
             <a href="https://myfigurecollection.net/" target="_blank">MFG</a>
