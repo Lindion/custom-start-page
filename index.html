@@ -11,10 +11,13 @@
             padding: 20px; /* Add padding to create space around the content */
             display: flex;
             height: 100vh;
-            justify-content: center; /* Center content horizontally */
+            flex-direction: column; /* Align content in a column */
+            justify-content: flex-start; /* Align content at the start of the column */
             align-items: center;
-            background-color: #000000;
+            background: url('https://i.imgur.com/0IWb7dn.gif') no-repeat center center fixed;
+            background-size: cover; /* Cover the whole viewport */
             font-family: 'VT323', monospace; /* Set the custom pixel font */
+            filter: blur(5px);
         }
 
         img {
@@ -69,6 +72,14 @@
             z-index: 999;
         }
 
+        .button-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            z-index: 1000;
+        }
+
         .button {
             background-color: #4CAF50;
             border: none;
@@ -78,16 +89,18 @@
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
-            margin: 4px 2px;
+            margin-right: 10px;
             cursor: pointer;
             border-radius: 8px;
         }
     </style>
 </head>
 <body>
-    <button class="button" onclick="toggleImage()">Toggle Image</button>
-    <button class="button" onclick="toggleGroups()">Toggle Groups</button>
-    <button class="button" onclick="toggleBlur()">Toggle Blur</button>
+    <div class="button-container">
+        <button class="button" onclick="toggleImage()">Toggle Image</button>
+        <button class="button" onclick="toggleGroups()">Toggle Groups</button>
+        <button class="button" onclick="toggleBlur()">Toggle Blur</button>
+    </div>
 
     <div class="overlay" id="overlay"></div>
 
