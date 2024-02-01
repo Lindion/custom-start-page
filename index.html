@@ -89,17 +89,17 @@
 
         .toggle-button {
             left: 50%;
-            transform: translateX(-50%);
+            transform: translateX(-150px);
         }
 
         .toggle-button-group {
             left: 50%;
-            transform: translateX(-150px);
+            transform: translateX(-100px);
         }
 
         .toggle-button-image {
             left: 50%;
-            transform: translateX(-100px);
+            transform: translateX(-50px);
         }
 
         .toggle-button-background {
@@ -169,8 +169,13 @@
 
     <img src="https://i.pinimg.com/originals/8e/8f/1d/8e8f1d842967eb5e91520a74246b358f.gif" alt="Start Page Image">
 
-    <!-- New button for changing backgrounds -->
-    <button class="toggle-button-background" onclick="nextBackground()">B</button>
+    <!-- Buttons for toggling features -->
+    <button class="toggle-button" onclick="toggleBlur()">B</button>
+    <button class="toggle-button-group" onclick="toggleGroups()">G</button>
+    <button class="toggle-button-image" onclick="toggleImage()">P</button>
+
+    <!-- Button for changing backgrounds -->
+    <button class="toggle-button-background" onclick="nextBackground()">1</button>
 
     <script>
         let blurEnabled = true;
