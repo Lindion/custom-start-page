@@ -25,11 +25,6 @@
             width: 100%;
             height: 100%;
             background-size: cover;
-            transition: opacity 2s ease-in-out;
-        }
-
-        .background.hidden {
-            opacity: 0;
         }
 
         .overlay {
@@ -129,14 +124,8 @@
             const currentBackground = document.getElementById('currentBackground');
             const nextIndex = (backgroundIndex + 1) % backgrounds.length;
 
-            const nextBackground = document.getElementById('nextBackground');
-            nextBackground.style.backgroundImage = `url('${backgrounds[nextIndex]}')`;
-            nextBackground.style.opacity = '1';
-
-            setTimeout(() => {
-                currentBackground.style.opacity = '0';
-                backgroundIndex = nextIndex;
-            }, 1000); // 1000ms delay before fading out the current background
+            currentBackground.style.backgroundImage = `url('${backgrounds[nextIndex]}')`;
+            backgroundIndex = nextIndex;
         }
 
         // Set the interval time (in milliseconds)
@@ -180,7 +169,6 @@
     <img src="https://i.pinimg.com/originals/8e/8f/1d/8e8f1d842967eb5e91520a74246b358f.gif" alt="Start Page Image">
 
     <div class="background" id="currentBackground"></div>
-    <div class="background hidden" id="nextBackground"></div>
 
     <button class="toggle-button" onclick="toggleBlur()">B</button>
     <button class="toggle-button-group" onclick="toggleGroups()">G</button>
