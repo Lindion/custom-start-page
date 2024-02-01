@@ -85,13 +85,15 @@
         .toggle-button {
             left: 50%;
             transform: translateX(-50%);
-            background-color: rgba(0, 0, 0, 0.3); /* Black circle with low opacity */
+            background-color: rgba(0, 0, 0, 0.3);
             color: #ffffff;
+            font-size: 32px; /* Increased font size */
         }
         
         .toggle-button-group, .toggle-button-image {
             background-color: rgba(0, 0, 0, 0.3);
             color: #ffffff;
+            font-size: 32px; /* Increased font size */
         }
 
         .toggle-button-group {
@@ -102,6 +104,11 @@
         .toggle-button-image {
             left: 50%;
             transform: translateX(60px);
+        }
+
+        /* Added style for active buttons */
+        .active {
+            border: 2px solid #ffffff;
         }
     </style>
 </head>
@@ -152,18 +159,27 @@
             const overlay = document.getElementById('blurOverlay');
             overlay.style.backdropFilter = blurEnabled ? 'blur(0)' : 'blur(10px)';
             blurEnabled = !blurEnabled;
+
+            // Toggle active class for the button
+            document.querySelector('.toggle-button').classList.toggle('active', blurEnabled);
         }
 
         function toggleGroups() {
             const links = document.querySelector('.links');
             links.style.display = groupsEnabled ? 'none' : 'flex';
             groupsEnabled = !groupsEnabled;
+
+            // Toggle active class for the button
+            document.querySelector('.toggle-button-group').classList.toggle('active', groupsEnabled);
         }
 
         function toggleImage() {
             const image = document.querySelector('img');
             image.style.display = imageEnabled ? 'none' : 'block';
             imageEnabled = !imageEnabled;
+
+            // Toggle active class for the button
+            document.querySelector('.toggle-button-image').classList.toggle('active', imageEnabled);
         }
     </script>
 </body>
