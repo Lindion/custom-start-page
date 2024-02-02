@@ -10,7 +10,7 @@
     <link rel="preload" href="https://media.giphy.com/media/nzdbn9Hg1SigU/giphy.gif" as="image">
     <!-- Style section for CSS -->
     <style>
-        // Base styling for the entire page
+        /* Base styling for the entire page */
         body {
             margin: 0;
             padding: 20px;
@@ -24,7 +24,7 @@
             background-size: cover;
         }
 
-        // Overlay for the blur effect
+        /* Overlay for the blur effect */
         .overlay {
             position: absolute;
             top: 0;
@@ -35,22 +35,22 @@
             z-index: -1;
         }
 
-        // Styling for the start page image
+        /* Styling for the start page image */
         img {
             max-width: 80%;
             max-height: 100%;
             border: 4px solid #ffffff;
             box-sizing: border-box;
             margin: 0 80px;
-            transition: transform 0.3s ease; // Smooth transition for scaling
+            transition: transform 0.3s ease; /* Smooth transition for scaling */
         }
 
-        // Scaling effect for the start page image on hover
+        /* Scaling effect for the start page image on hover */
         img:hover {
-            transform: scale(1.1); // 10% increase in size on hover
+            transform: scale(1.1); /* 10% increase in size on hover */
         }
 
-        // Container for link groups with black box overlay
+        /* Container for link groups with black box overlay */
         .links {
             display: flex;
             flex-direction: row;
@@ -59,7 +59,7 @@
             position: relative;
         }
 
-        // Black box overlay behind the link groups
+        /* Black box overlay behind the link groups */
         .links::before {
             content: "";
             position: absolute;
@@ -68,12 +68,12 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.3);
-            border: 2px solid #ffffff; // White border around the black box
-            box-sizing: border-box; // Ensure border is included in the box size
+            border: 2px solid #ffffff; /* White border around the black box */
+            box-sizing: border-box; /* Ensure border is included in the box size */
             z-index: -1;
         }
 
-        // Styling for each link group
+        /* Styling for each link group */
         .group {
             text-align: center;
             padding: 40px;
@@ -81,33 +81,33 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            border: 2px solid #ffffff; // White border around each group
-            box-sizing: border-box; // Ensure border is included in the box size
+            border: 2px solid #ffffff; /* White border around each group */
+            box-sizing: border-box; /* Ensure border is included in the box size */
         }
 
-        // Styling for links within each group
+        /* Styling for links within each group */
         .group a {
             flex-grow: 1;
             color: #ffffff;
             text-decoration: none;
             margin-bottom: 10px;
             font-size: 20px;
-            transition: transform 0.3s ease; // Smooth transition for scaling
+            transition: transform 0.3s ease; /* Smooth transition for scaling */
         }
 
-        // Scaling effect for group links on hover
+        /* Scaling effect for group links on hover */
         .group a:hover {
-            transform: scale(1.1); // 10% increase in size on hover
+            transform: scale(1.1); /* 10% increase in size on hover */
         }
 
-        // Styling for group titles
+        /* Styling for group titles */
         .group-title {
             color: #ffffff;
             font-size: 30px;
             margin-bottom: 10px;
         }
 
-        // Styling for toggle buttons
+        /* Styling for toggle buttons */
         .toggle-button, .toggle-button-group, .toggle-button-image {
             position: absolute;
             top: 20px;
@@ -123,36 +123,37 @@
             background-color: rgba(0, 0, 0, 0.3);
             color: #ffffff;
             font-size: 24px;
-            transition: transform 0.3s ease; // Smooth transition for scaling
+            transition: transform 0.3s ease; /* Smooth transition for scaling */
+            z-index: 1; /* Ensure buttons are above the overlay */
         }
 
-        // Scaling effect for toggle buttons on hover
+        /* Scaling effect for toggle buttons on hover */
         .toggle-button:hover, .toggle-button-group:hover, .toggle-button-image:hover {
-            transform: scale(1.1); // 10% increase in size on hover
+            transform: scale(1.1); /* 10% increase in size on hover */
         }
 
-        // Positioning for the blur toggle button
+        /* Positioning for the blur toggle button */
         .toggle-button {
             left: 50%;
             transform: translateX(-50%);
         }
 
-        // Positioning for the link groups toggle button
+        /* Positioning for the link groups toggle button */
         .toggle-button-group {
             left: 50%;
             transform: translateX(-100px);
         }
 
-        // Positioning for the start page image toggle button
+        /* Positioning for the start page image toggle button */
         .toggle-button-image {
             left: 50%;
             transform: translateX(60px);
         }
 
-        // Style for the white circle indicating button press
+        /* Style for the white circle indicating button press */
         .active {
-            background-color: transparent; // Remove background color
-            border: none; // Remove border
+            background-color: transparent; /* Remove background color */
+            border: none; /* Remove border */
         }
     </style>
     <!-- JavaScript for functionality -->
