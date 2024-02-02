@@ -42,6 +42,12 @@
             border: 4px solid #ffffff;
             box-sizing: border-box;
             margin: 0 80px;
+            transition: transform 0.3s ease; /* Smooth transition for scaling */
+        }
+
+        /* Scaling effect for the start page image on hover */
+        img:hover {
+            transform: scale(1.1); /* 10% increase in size on hover */
         }
 
         /* Container for link groups with black box overlay */
@@ -114,6 +120,12 @@
             background-color: rgba(0, 0, 0, 0.3);
             color: #ffffff;
             font-size: 24px;
+            transition: transform 0.3s ease; /* Smooth transition for scaling */
+        }
+
+        /* Scaling effect for toggle buttons on hover */
+        .toggle-button:hover, .toggle-button-group:hover, .toggle-button-image:hover {
+            transform: scale(1.1); /* 10% increase in size on hover */
         }
 
         /* Positioning for the blur toggle button */
