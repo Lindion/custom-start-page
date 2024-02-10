@@ -22,7 +22,6 @@
             font-family: 'VT323', monospace;
             position: relative;
             background-size: cover;
-            transition: background-image 1s ease; /* Slide-in effect transition */
         }
 
         /* Overlay for the blur effect */
@@ -148,11 +147,6 @@
             background-color: transparent; /* Remove background color */
             border: none; /* Remove border */
         }
-
-        /* Slide-in effect class */
-        .slide-in {
-            transform: translateX(0%);
-        }
     </style>
     <!-- JavaScript for functionality -->
     <script>
@@ -266,11 +260,6 @@
 
         // Initial background
         changeBackground();
-
-        // Add slide-in effect on page load
-        document.addEventListener('DOMContentLoaded', function () {
-            document.body.classList.add('slide-in');
-        });
     </script>
 </body>
 </html>
