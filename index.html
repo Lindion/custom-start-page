@@ -176,17 +176,17 @@
 
         // Load saved settings from localStorage
         if (localStorage.getItem('blurEnabled') !== null) {
-            blurEnabled = JSON.parse(localStorage.getItem('blurEnabled'));
+            blurEnabled = localStorage.getItem('blurEnabled') === 'true';
             updateBlur();
         }
 
         if (localStorage.getItem('groupsEnabled') !== null) {
-            groupsEnabled = JSON.parse(localStorage.getItem('groupsEnabled'));
+            groupsEnabled = localStorage.getItem('groupsEnabled') === 'true';
             updateGroups();
         }
 
         if (localStorage.getItem('imageEnabled') !== null) {
-            imageEnabled = JSON.parse(localStorage.getItem('imageEnabled'));
+            imageEnabled = localStorage.getItem('imageEnabled') === 'true';
             updateImage();
         }
 
@@ -194,21 +194,21 @@
         function toggleBlur() {
             blurEnabled = !blurEnabled;
             updateBlur();
-            localStorage.setItem('blurEnabled', blurEnabled);
+            localStorage.setItem('blurEnabled', blurEnabled.toString());
         }
 
         // Function to toggle visibility of link groups
         function toggleGroups() {
             groupsEnabled = !groupsEnabled;
             updateGroups();
-            localStorage.setItem('groupsEnabled', groupsEnabled);
+            localStorage.setItem('groupsEnabled', groupsEnabled.toString());
         }
 
         // Function to toggle visibility of start page image
         function toggleImage() {
             imageEnabled = !imageEnabled;
             updateImage();
-            localStorage.setItem('imageEnabled', imageEnabled);
+            localStorage.setItem('imageEnabled', imageEnabled.toString());
         }
 
         // Function to update blur effect based on the state
